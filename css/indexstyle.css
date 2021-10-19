@@ -1,0 +1,145 @@
+/*
+.paragraph p{
+  background-color: pink;
+}
+
+#bento h1{
+  margin: auto;
+  width: 50%;
+
+}
+*/
+/*style für index.html*/
+.grid.container{
+
+  display:grid;
+  height: 100vh;
+  grid-template-rows:auto 1fr auto;
+}
+
+/**/
+/*style für index2.html*/
+
+.colGrid12 {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(12,1fr);
+  align-items: center;
+
+
+   }
+
+.colGrid12.el1,.el2{
+
+  color: red;
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+}
+
+.colGrid12 .el3, .el4{
+  color: blue;
+  grid-column-start: 12;
+  grid-column-end: 12;
+
+}
+/*style für ResponsiveLayoutGrid.html*/
+.container3 {
+  color: #9A9483;
+  display: grid;
+  height: 100vh;
+  grid-auto-rows: auto auto 1fr auto auto auto;
+  gap: 1em;
+}
+
+
+/*Mit Screen and bedeutet lese die Bidlschirm breite von benutzern*/
+/*das wird hier nicht verwendet da Styling protperties konnen nicht mit (Screen) */
+/* [all] kann alle die Signale lesen und weiter an Media Query leiten*/
+
+@media all and (min-width: 720px) and (max-width: 1280px){
+  .container3 ,.colGroup{
+    /*erstelle auf dem Viewport ein bestimmte anzahl von Reihen*/
+    grid-template-rows:auto auto 1fr auto ;
+    /*erstelle auf dem Viewport ein bestimmte anzahl von Spalte*/
+    grid-template-columns: repeat(12,1fr) ;
+  }
+
+}
+/*Media Query fur Desktop und Laptops*/
+@media (min-width: 720px) and (max-width: 1280px) {
+  .container3 .header {
+    grid-column: 1 / span 12;
+  }
+
+  .container3 .navigation {
+    grid-column: 1 / span 12;
+  }
+
+  .container3 .navbutton{
+    display: none;
+  }
+
+  .container3 .main {
+    grid-column: 3 / span 12;
+  }
+
+  .container3 .sidebar {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    background-color: #b3d4fc;
+  }
+
+  .container3 .ads {
+    grid-column: 1 / span 2;
+  }
+
+  .container3 .footer {
+    grid-column: 3 / span 12;
+  }
+}
+
+/*Media Query fur Tablet und Mobiltelefon*/
+@media (min-width: 300px) and (max-width:680px )  {
+  .container3, .colGroup {
+    /*erstelle auf dem Viewport ein bestimmte anzahl von Reihen*/
+    grid-template-rows: auto auto 1fr auto;
+    /*erstelle auf dem Viewport ein bestimmte anzahl von Spalten*/
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+/*Media Query fur Handy*/
+@media (min-width: 300px) and (max-width:680px ) {
+  .container3 .header {
+    grid-column: 1 / span 12;
+  }
+
+  .container3 .navigation {
+    grid-column: 1 / span 12;
+  }
+
+  .container3 .navbutton{
+    grid-column: 1 / span 2;
+    grid-row:1;
+  }
+
+  .container3 .main {
+    grid-column: 1 / span 12;
+  }
+
+  .container3 .sidebar {
+    /*grid-column: 1 / span 2;*/
+    /*grid-row: 3;*/
+    display: none;
+  }
+
+  .container3 .ads {
+    grid-column: 1 / span 12;
+  }
+
+  .container3 .footer {
+    grid-column: 1 / span 12;
+  }
+}
+
